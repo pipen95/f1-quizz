@@ -1,0 +1,2 @@
+const FETCHING_QUOTE = "FECHING_QUOTE";
+export default FETCHING_QUOTE;
