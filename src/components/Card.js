@@ -16,9 +16,13 @@ export class Cardz extends Component {
           border: 'none',
           marginTop: '3rem'
         }}
-        className="my-3"
+        className="card my-3"
         key={driver.id}
       >
+        <span className="span one"></span>
+        <span className="span two"></span>
+        <span className="span three"></span>
+        <span className="span four"></span>
         <Card.Img variant="top" src={driver.img} />
         <Card.Body className="bg-secondary">
           <Card.Text className="text-white d-flex justify-content-between">
