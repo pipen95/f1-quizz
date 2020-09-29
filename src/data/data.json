@@ -1,0 +1,141 @@
+[
+  {
+    "id": 1,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/c73/c73c74cf4ef7d06285c2e2b524dc2bcf.png",
+    "name": "Lewis Hamilton",
+    "ratio": 12
+  },
+  {
+    "id": 2,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/ba6/ba6f21e38d6ab546f5eba716879713b0.png",
+    "name": "Valteri Bottas",
+    "ratio": 1
+  },
+  {
+    "id": 3,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/df7/df792dd6a5221b755f1434afae3cb6f6.png",
+    "name": "Max Verstappen",
+    "ratio": 11
+  },
+  {
+    "id": 4,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/060/060386ea54052d3a15021f63479b5af9.png",
+    "name": "Lando Norris",
+    "ratio": 23
+  },
+  {
+    "id": 5,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/03e/03e919760d489a3aa8d2c057764716d6.png",
+    "name": "Alex Albon",
+    "ratio": 3
+  },
+  {
+    "id": 6,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/b25/b25c9fe597234a6ee264779117b18da7.png",
+    "name": "Lance Stroll",
+    "ratio": 5
+  },
+  {
+    "id": 7,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/992/9922a20a434aef04a313096389bcd062.png",
+    "name": "Daniel Ricciardo",
+    "ratio": 7
+  },
+  {
+    "id": 8,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/fb6/fb6f8dbe0087e4d190d0d2a44a38ad94.png",
+    "name": "Charles Leclerc",
+    "ratio": 5
+  },
+  {
+    "id": 9,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/fb6/fb6f8dbe0087e4d190d0d2a44a38ad94.png",
+    "name": "Charles Leclerc",
+    "ratio": 5
+  },
+  {
+    "id": 10,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/b3e/b3e2ed14e8c3c62af4f77f78bb15978f.png",
+    "name": "Sergio Perez",
+    "ratio": 2
+  },
+  {
+    "id": 11,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/32d/32d20827bbca5d2fd4a5ffe3d34f6051.png",
+    "name": "Pierre Gasly",
+    "ratio": 18
+  },
+  {
+    "id": 12,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/d51/d516e6f4b2be442911e4c82d1b4c22f1.png",
+    "name": "Carlos Sainz",
+    "ratio": 3
+  },
+  {
+    "id": 13,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/350/3508e9fb15cb71b5d7003e2564f84d54.png",
+    "name": "Esteban Ocon",
+    "ratio": 0
+  },
+  {
+    "id": 14,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/dee/dee0d7b227b0e99fc42a991e86b6646f.png",
+    "name": "Esteban Ocon",
+    "ratio": 1
+  },
+  {
+    "id": 15,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/7d2/7d27fdb4c0da5a42adca7e672d87045f.png",
+    "name": "Daniil Kvyat",
+    "ratio": 0
+  },
+  {
+    "id": 16,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/202/20229e1bffc480791a465cf0838848a5.png",
+    "name": "Nico Hulkenberg",
+    "ratio": 2
+  },
+  {
+    "id": 17,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/005/00561af085245ca9fbf2bbc3db329e8a.png",
+    "name": "Kimi Raikkonen",
+    "ratio": 1
+  },
+  {
+    "id": 18,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/005/00561af085245ca9fbf2bbc3db329e8a.png",
+    "name": "Kimi Raikkonen",
+    "ratio": 1
+  },
+  {
+    "id": 19,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/148/148504915c81ab7d8546f6fc536f1df1.png",
+    "name": "Antonio Giovinazzi",
+    "ratio": 0
+  },
+  {
+    "id": 20,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/269/269024d4c2e2e17ad24f7b06f620ba23.png",
+    "name": "Kevin Magnussen",
+    "ratio": 1
+  },
+  {
+    "id": 21,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/e88/e8841d792d08399b44f0a0e4ababc295.png",
+    "name": "Nicholas Latifi",
+    "ratio": 1
+  },
+  {
+    "id": 22,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/310/310d41177374283322b0dc4656adda82.png",
+    "name": "George Russell",
+    "ratio": 2
+  },
+
+  {
+    "id": 23,
+    "img": "https://cdn.riddle.com/embeds/v2/images/q_80,c_fill,w_960,h_540/f54/f54423d6d427a9837ae43c96ca3a440f.png",
+    "name": "Romain Grosjean",
+    "ratio": 0
+  }
+]

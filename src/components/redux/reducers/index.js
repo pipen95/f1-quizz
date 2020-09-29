@@ -1,8 +1,8 @@
-import { combineReducers } from "redux";
-import quoteReducer from "./quoteReducer";
+import { combineReducers } from 'redux';
+import driversReducer from './driversReducer';
 
 const rootReducer = combineReducers({
-  quote: quoteReducer
+  drivers: driversReducer
 });
 
 export default rootReducer;
