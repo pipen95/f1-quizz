@@ -4,7 +4,7 @@ import { fetchDrivers } from './redux/actions/fetchDrivers';
 import { Card, Badge } from 'react-bootstrap';
 
 export class Cardz extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchDrivers();
   }
 
@@ -49,7 +49,4 @@ const mapStateToProps = state => ({
   drivers: state.drivers
 });
 
-const mapDispatchToProps = () => {
-  return { fetchDrivers };
-};
-export default connect(mapStateToProps, mapDispatchToProps())(Cardz);
+export default connect(mapStateToProps, { fetchDrivers })(Cardz);
