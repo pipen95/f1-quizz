@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchDrivers } from './redux/actions/fetchDrivers';
+import { addVote } from './redux/actions/fetchDrivers';
 import { Card, Badge } from 'react-bootstrap';
 
 export class Cardz extends Component {
@@ -9,7 +10,7 @@ export class Cardz extends Component {
   }
 
   render() {
-    const driversItems = this.props.drivers.drivers.map(driver => (
+    const driversItems = this.props.drivers.drivers.map((driver, idx) => (
       <Card
         style={{
           width: '18rem',
@@ -18,6 +19,7 @@ export class Cardz extends Component {
         }}
         className="card my-3"
         key={driver.id}
+        onClick={this.props.addVote.bind(this, idx)}
       >
         <span className="span one"></span>
         <span className="span two"></span>
@@ -28,7 +30,7 @@ export class Cardz extends Component {
           <Card.Text className="text-white d-flex justify-content-between">
             {driver.name}
             <Badge pill variant="light" className="py-1 px-2 align-self-center">
-              {driver.ratio}%
+              Votes: {driver.ratio}
             </Badge>
           </Card.Text>
         </Card.Body>
@@ -53,4 +55,4 @@ const mapStateToProps = state => ({
   drivers: state.drivers
 });
 
-export default connect(mapStateToProps, { fetchDrivers })(Cardz);
+export default connect(mapStateToProps, { fetchDrivers, addVote })(Cardz);

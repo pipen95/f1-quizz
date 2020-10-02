@@ -1,5 +1,6 @@
 import FETCHING_DRIVERS from '../types/fetchingDrivers';
 import NEW_DRIVERS from '../types/newDrivers';
+import NEW_VOTE from '../types/newVote';
 
 export const fetchDrivers = () => dispatch => {
   dispatch({ type: FETCHING_DRIVERS });
@@ -12,4 +13,11 @@ export const fetchDrivers = () => dispatch => {
       })
     )
     .catch(err => console.log(err));
+};
+
+export const addVote = i => {
+  return {
+    type: NEW_VOTE,
+    i
+  };
 };

@@ -22,7 +22,7 @@ code {
 }
 .card {
   overflow: hidden;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 .card .span {
   transition: 0.5;
