@@ -24,6 +24,7 @@ code {
   overflow: hidden;
   opacity: 0.8;
 }
+
 .card .span {
   transition: 0.5;
   opacity: 0;
