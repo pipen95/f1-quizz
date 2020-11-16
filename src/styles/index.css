@@ -11,18 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.btn:hover {
+  cursor: pointer;
+}
 .card:hover {
   opacity: 1;
-  cursor: pointer;
+}
+.react-card-flip {
+  margin-top: 3rem;
 }
 
 .card:hover .span {
   opacity: 1;
 }
-.card {
+.card-front {
   overflow: hidden;
   opacity: 0.8;
+}
+
+.card {
+  width: 18rem;
+  min-height: 14rem;
 }
 
 .card .span {

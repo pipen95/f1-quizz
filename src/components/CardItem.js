@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchDrivers } from './redux/actions/fetchDrivers';
 import { addVote } from './redux/actions/fetchDrivers';
 import { Card, Badge } from 'react-bootstrap';
 import ReactCardFlip from 'react-card-flip';
+import data from '../data/data.json'
 
-export class Cardz extends Component {
+class CardItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,8 +13,9 @@ export class Cardz extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.fetchDrivers();
+  imagePicker = id => {
+    const img = data.filter(el => el.id === id)
+    return img[0].img;
   }
 
   handleClick = e => {
@@ -23,32 +24,29 @@ export class Cardz extends Component {
   };
 
   render() {
-    const driversItems = this.props.drivers.drivers.map((driver, idx) => (
+    return (
       <ReactCardFlip
         isFlipped={this.state.isFlipped}
-        key={driver.id.toString()}
       >
         <Card
           style={{
-            width: '18rem',
-            border: 'none',
-            marginTop: '3rem',
-            minHeight: '14rem'
+            border: 'none'
           }}
-          className="bg-secondary"
+          className="bg-secondary card-front"
+
         >
           <span className="span one"></span>
           <span className="span two"></span>
           <span className="span three"></span>
           <span className="span four"></span>
-          <Card.Img variant="top" src={driver.img} />
+          <Card.Img variant="top" src={`${this.imagePicker(this.props.driver.driverId)}`} />
           <Card.Body>
             <Card.Text className="text-white d-flex justify-content-between">
-              {driver.name}
+              {this.props.driver.GivenName} {this.props.driver.FamilyName}
               <Badge
                 pill
                 variant="light"
-                className="py-1 px-2 align-self-center"
+                className="py-1 px-2 align-self-center btn"
                 onClick={this.handleClick}
               >
                 Stats
@@ -56,58 +54,50 @@ export class Cardz extends Component {
               <Badge
                 pill
                 variant="light"
-                className="py-1 px-2 align-self-center"
-                onClick={this.props.addVote.bind(null, idx)}
+                className="py-1 px-2 align-self-center btn"
+                onClick={this.props.addVote.bind(null, this.props.idx)}
               >
-                Votes: {driver.ratio}
+                Votes: {this.props.stats.wins}
               </Badge>
             </Card.Text>
           </Card.Body>
         </Card>
         <Card
-          key={driver.id.toString()}
           style={{
-            width: '18rem',
             border: 'none',
-            marginTop: '3rem',
-            minHeight: '14rem'
           }}
-          className="bg-light"
+          className="bg-secondary"
         >
-          <Card.Body>
-            <Card.Text className="d-flex justify-content-between">
-              {driver.stats}
+          <Card.Body className="d-flex flex-column justify-content-center align-items-center">
+            <Card.Text className="text-white">
+              Season: {new Date().getFullYear()}
+            </Card.Text>
+            <Card.Text className="text-white">
+              Team: {this.props.constructor.Name}
+            </Card.Text>
+            <Card.Text className="text-white">
+              Ranking: {this.props.stats.position}
+            </Card.Text>
+            {/* <Card.Text className="text-white">
+              Wins: {this.props.stats.wins}
+            </Card.Text> */}
+            <Card.Text className="text-white">
+              Points: {this.props.stats.points}
             </Card.Text>
             <Badge
               pill
               variant="light"
-              className="py-1 px-2 align-self-center"
+              className="py-1 px-2 align-self-center btn"
               onClick={this.handleClick}
-              key={driver.id.toString()}
             >
               Go Back
             </Badge>
           </Card.Body>
         </Card>
-      </ReactCardFlip>
-    ));
-
-    return (
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          flexWrap: 'wrap'
-        }}
-      >
-        {driversItems}
-      </div>
+      </ReactCardFlip >
     );
   }
 }
 
-const mapStateToProps = state => ({
-  drivers: state.drivers
-});
+export default connect(null, { addVote })(CardItem);
 
-export default connect(mapStateToProps, { fetchDrivers, addVote })(Cardz);

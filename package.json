@@ -15,7 +15,10 @@
     "react-scripts": "3.4.3",
     "react-spring": "^9.0.0-rc.3",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "xml-js": "^1.6.11",
+    "xml2js": "^0.4.23",
+    "xml2json-light": "^1.0.6"
   },
   "scripts": {
     "start": "react-scripts start",

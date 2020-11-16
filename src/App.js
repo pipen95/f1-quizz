@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Jumbotron } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Cardz from './components/Card';
+import CardList from './components/CardList';
 import { Provider } from 'react-redux';
 import store from './components/redux/store/store';
 
@@ -12,9 +12,9 @@ export default function App() {
         <Jumbotron className="shadow">
           <Jumbotron className="bg-dark">
             <h1 className="header text-center color-white text-white mb-3">
-              Who is your favorite F1&nbsp;driver?
+              Vote for your favorite F1&nbsp;driver!
             </h1>
-            <Cardz />
+            <CardList />
           </Jumbotron>
         </Jumbotron>
       </Container>
