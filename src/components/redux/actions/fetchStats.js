@@ -7,7 +7,7 @@ var requestOptions = {
 };
 
 export const fetchStats = () => dispatch => {
-  fetch("http://ergast.com/api/f1/current/driverStandings", requestOptions)
+  fetch("https://ergast.com/api/f1/current/driverStandings", requestOptions)
     .then(response => response.text())
     .then(data =>
       dispatch({
