@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 // import { fetchDrivers } from './redux/actions/fetchDrivers';
-import { fetchStats } from './redux/actions/fetchStats';
-import CardItem from '../components/CardItem';
-
+import { fetchStats } from "./redux/actions/fetchStats";
+import CardItem from "../components/CardItem";
 
 class CardList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFlipped: false
+      isFlipped: false,
     };
   }
 
@@ -20,14 +19,20 @@ class CardList extends Component {
 
   render() {
     const driversItems = this.props.drivers.drivers.map((driver, idx) => (
-      <CardItem stats={driver} driver={driver.Driver} idx={idx} constructor={driver.Constructor} />
+      <CardItem
+        stats={driver}
+        driver={driver.Driver}
+        idx={idx}
+        key={idx}
+        constructor={driver.Constructor}
+      />
     ));
     return (
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          flexWrap: 'wrap'
+          display: "flex",
+          justifyContent: "space-around",
+          flexWrap: "wrap",
         }}
       >
         {driversItems}
@@ -36,7 +41,7 @@ class CardList extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   drivers: state.drivers,
 });
 

@@ -29,7 +29,10 @@ const driversReducer = (state = defaultState, action) => {
         ...state,
         drivers: [
           ...obj.slice(0, i), // before the one we are updating
-          { ...obj[i], wins: Number(obj[i].wins + 1) },
+          {
+            ...obj[i],
+            wins: Number(obj[i].wins) + 1
+          },
           ...obj.slice(i + 1) // after the one we are updating
         ]
       };

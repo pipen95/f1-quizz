@@ -1,20 +1,19 @@
-import NEW_STATS from '../types/newStats';
-var parser = require('xml2json-light');
+import NEW_STATS from "../types/newStats";
+var parser = require("xml2json-light");
 
 var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
+  method: "GET",
+  redirect: "follow",
 };
 
-export const fetchStats = () => dispatch => {
+export const fetchStats = () => (dispatch) => {
   fetch("https://ergast.com/api/f1/current/driverStandings", requestOptions)
-    .then(response => response.text())
-    .then(data =>
+    .then((response) => response.text())
+    .then((data) =>
       dispatch({
         type: NEW_STATS,
-        stats: parser.xml2json(data)
+        stats: parser.xml2json(data),
       })
     )
-    .catch(err => console.log(err));
-}
-
+    .catch((err) => console.log(err));
+};

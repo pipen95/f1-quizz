@@ -1,45 +1,53 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addVote } from './redux/actions/fetchDrivers';
-import { Card, Badge } from 'react-bootstrap';
-import ReactCardFlip from 'react-card-flip';
-import data from '../data/data.json'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addVote } from "./redux/actions/fetchDrivers";
+import { Card, Badge } from "react-bootstrap";
+import ReactCardFlip from "react-card-flip";
+import data from "../data/data.json";
 
 class CardItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFlipped: false
+      isFlipped: false,
     };
   }
 
-  imagePicker = id => {
-    const img = data.filter(el => el.id === id)
-    return img[0].img;
-  }
+  imagePicker = (id, defaultVal) => {
+    const x = data.filter((el) => el.id === id);
+    try {
+      return x[0].img;
+    } catch (e) {
+      return defaultVal;
+    }
+  };
 
-  handleClick = e => {
+  handleClick = (e) => {
     e.preventDefault();
     this.setState({ isFlipped: !this.state.isFlipped });
   };
 
   render() {
     return (
-      <ReactCardFlip
-        isFlipped={this.state.isFlipped}
-      >
+      <ReactCardFlip isFlipped={this.state.isFlipped}>
         <Card
           style={{
-            border: 'none'
+            border: "none",
           }}
           className="bg-secondary card-front"
-
         >
           <span className="span one"></span>
           <span className="span two"></span>
           <span className="span three"></span>
           <span className="span four"></span>
-          <Card.Img variant="top" src={`${this.imagePicker(this.props.driver.driverId)}`} />
+          <Card.Img
+            className="img align-self-center"
+            variant="top"
+            src={`${this.imagePicker(
+              this.props.driver.driverId,
+              "https://www.formula1.com/content/dam/fom-website/drivers/A/ANTGIO01_Antonio_Giovinazzi/antgio01.png.transform/2col/image.png"
+            )}`}
+          />
           <Card.Body>
             <Card.Text className="text-white d-flex justify-content-between">
               {this.props.driver.GivenName} {this.props.driver.FamilyName}
@@ -64,7 +72,7 @@ class CardItem extends Component {
         </Card>
         <Card
           style={{
-            border: 'none',
+            border: "none",
           }}
           className="bg-secondary"
         >
@@ -94,10 +102,9 @@ class CardItem extends Component {
             </Badge>
           </Card.Body>
         </Card>
-      </ReactCardFlip >
+      </ReactCardFlip>
     );
   }
 }
 
 export default connect(null, { addVote })(CardItem);
-

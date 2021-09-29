@@ -11,12 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 .btn:hover {
   cursor: pointer;
 }
+
 .card:hover {
   opacity: 1;
 }
+
 .react-card-flip {
   margin-top: 3rem;
 }
@@ -24,6 +27,7 @@ code {
 .card:hover .span {
   opacity: 1;
 }
+
 .card-front {
   overflow: hidden;
   opacity: 0.9;
@@ -32,6 +36,16 @@ code {
 .card {
   width: 18rem;
   min-height: 14rem;
+}
+
+
+.card-img, .card-img-bottom, .card-img-top {
+    max-width: 200px !important;
+    padding-top: 1rem !important;
+}
+
+.card-body {
+  padding-top: 0.8rem !important;
 }
 
 .card .span {
@@ -48,14 +62,17 @@ code {
   background: linear-gradient(to right, transparent, #1779ff);
   animation: animate1 2s linear infinite;
 }
+
 @keyframes animate1 {
   0% {
     transform: translateX(-100%);
   }
+
   100% {
     transform: translateX(100%);
   }
 }
+
 .card .two {
   position: absolute;
   top: 0;
@@ -66,14 +83,17 @@ code {
   animation: animate2 2s linear infinite;
   animation-delay: 1s;
 }
+
 @keyframes animate2 {
   0% {
     transform: translateY(-100%);
   }
+
   100% {
     transform: translateY(100%);
   }
 }
+
 .card .three {
   position: absolute;
   bottom: 0;
@@ -83,14 +103,17 @@ code {
   background: linear-gradient(to left, #0c002b, #1779ff);
   animation: animate3 2s linear infinite;
 }
+
 @keyframes animate3 {
   0% {
     transform: translateX(100%);
   }
+
   100% {
     transform: translateX(-100%);
   }
 }
+
 .card .four {
   position: absolute;
   top: 0;
@@ -101,10 +124,12 @@ code {
   animation: animate4 2s linear infinite;
   animation-delay: 1s;
 }
+
 @keyframes animate4 {
   0% {
     transform: translateY(100%);
   }
+
   100% {
     transform: translateY(-100%);
   }
