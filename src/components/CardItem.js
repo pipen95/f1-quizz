@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { addVote } from "./redux/actions/fetchDrivers";
+// import { connect } from "react-redux";
+// import { addVote } from "./redux/actions/fetchDrivers";
 import { Card, Badge } from "react-bootstrap";
 import ReactCardFlip from "react-card-flip";
 import data from "../data/data.json";
+import { Container } from "./Container";
 
 class CardItem extends Component {
   constructor(props) {
@@ -28,6 +29,12 @@ class CardItem extends Component {
   };
 
   render() {
+    const triggerText = "Rate him!";
+    const onSubmit = (event) => {
+      event.preventDefault(event);
+      console.log(event.target.name.value);
+      console.log(event.target.email.value);
+    };
     return (
       <ReactCardFlip isFlipped={this.state.isFlipped}>
         <Card
@@ -59,14 +66,10 @@ class CardItem extends Component {
               >
                 Stats
               </Badge>
-              <Badge
-                pill
-                variant="light"
-                className="py-1 px-2 align-self-center btn"
-                onClick={this.props.addVote.bind(null, this.props.idx)}
-              >
-                Votes: {this.props.stats.wins}
-              </Badge>
+              <Container
+                triggerText={triggerText}
+                onSubmit={onSubmit}
+              ></Container>
             </Card.Text>
           </Card.Body>
         </Card>
@@ -107,4 +110,4 @@ class CardItem extends Component {
   }
 }
 
-export default connect(null, { addVote })(CardItem);
+export default CardItem;

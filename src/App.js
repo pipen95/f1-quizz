@@ -1,11 +1,11 @@
-import React from 'react';
-import { Container, Jumbotron } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import CardList from './components/CardList';
-import { Provider } from 'react-redux';
-import store from './components/redux/store/store';
+import React from "react";
+import { Container, Jumbotron } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import CardList from "./components/CardList";
+import { Provider } from "react-redux";
+import store from "./components/redux/store/store";
 
-export default function App() {
+const App = () => {
   return (
     <Provider store={store}>
       <Container>
@@ -20,4 +20,5 @@ export default function App() {
       </Container>
     </Provider>
   );
-}
+};
+export default App;
