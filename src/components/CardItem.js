@@ -89,9 +89,9 @@ class CardItem extends Component {
             <Card.Text className="text-white">
               Ranking: {this.props.stats.position}
             </Card.Text>
-            {/* <Card.Text className="text-white">
+            <Card.Text className="text-white">
               Wins: {this.props.stats.wins}
-            </Card.Text> */}
+            </Card.Text>
             <Card.Text className="text-white">
               Points: {this.props.stats.points}
             </Card.Text>

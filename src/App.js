@@ -12,7 +12,7 @@ const App = () => {
         <Jumbotron className="shadow">
           <Jumbotron className="bg-dark">
             <h1 className="header text-center color-white text-white mb-0">
-              Vote for your favorite F1&nbsp;driver!
+              Rate your favorite F1&nbsp;driver!
             </h1>
             <CardList />
           </Jumbotron>
