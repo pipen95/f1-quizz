@@ -2,7 +2,7 @@ import React from "react";
 export const Form = ({ onSubmit }) => {
   return (
     <form onSubmit={onSubmit}>
-      <h2 className="text-center">How much do you rate [Drivers Name]?</h2>
+      <h2 className="text-center">How much do you rate [Drivers Nam]?</h2>
 
       <div className="rating">
         <input
