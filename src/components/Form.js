@@ -88,7 +88,7 @@ export const Form = ({ onSubmit }) => {
         <div className="clear" />
       </div>
       <hr className="hr" />
-      <h3 className="text-center">Tell us where you're voting from 🗺 😄!</h3>
+      <h3 className="text-center">Tell us where you're voting from!</h3>
       <div className="form-group">
         <label htmlFor="name">Name</label>
         <input className="form-control" id="name" />
