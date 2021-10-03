@@ -33,7 +33,7 @@ class CardItem extends Component {
     const onSubmit = (event) => {
       event.preventDefault(event);
       console.log(event.target.name.value);
-      console.log(event.target.email.value);
+      console.log(event.target.country.value);
     };
     return (
       <ReactCardFlip isFlipped={this.state.isFlipped}>

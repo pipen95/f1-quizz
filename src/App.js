@@ -1,9 +1,10 @@
 import React from "react";
 import { Container, Jumbotron } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import CardList from "./components/CardList";
 import { Provider } from "react-redux";
 import store from "./components/redux/store/store";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-bootstrap-country-select/dist/react-bootstrap-country-select.css";
 
 const App = () => {
   return (
