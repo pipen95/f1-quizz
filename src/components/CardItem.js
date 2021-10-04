@@ -81,7 +81,11 @@ class CardItem extends Component {
               >
                 Stats
               </Badge>
-              <Container triggerText={triggerText} onSubmit={this.onSubmit} />
+              <Container
+                name={`${this.props.driver.GivenName} ${this.props.driver.FamilyName}`}
+                triggerText={triggerText}
+                onSubmit={this.onSubmit}
+              />
             </Card.Text>
           </Card.Body>
         </Card>

@@ -39,12 +39,11 @@ export class Container extends Component {
           showModal={this.showModal}
           buttonRef={(n) => (this.TriggerButton = n)}
           triggerText={this.props.triggerText}
-          data-name={this.props.name}
-          data-id={this.props.id}
           onClick={this.props.onClick}
         />
         {this.state.isShown ? (
           <Modal
+            name={this.props.name}
             onSubmit={this.props.onSubmit}
             modalRef={(n) => (this.modal = n)}
             buttonRef={(n) => (this.closeButton = n)}

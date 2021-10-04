@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import CountrySelect from "react-bootstrap-country-select";
 import ReactStars from "react-rating-stars-component";
 
-export const Form = ({ onSubmit }) => {
+export const Form = ({ onSubmit, name }) => {
   const [rating, ratingChanged] = useState(null);
   const [value, setValue] = useState(null);
 
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <h2 className="text-center">How much do you rate []</h2>
+        <h2 className="text-center">How much do you rate {name}?</h2>
         <div className="d-flex justify-content-center align-items-center">
           <input id="rate" className="form-control hide" value={rating} />
           <ReactStars
