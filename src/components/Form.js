@@ -1,26 +1,25 @@
 import React, { useState } from "react";
 import CountrySelect from "react-bootstrap-country-select";
 import ReactStars from "react-rating-stars-component";
-import { render } from "react-dom";
 
 export const Form = ({ onSubmit }) => {
+  const [rating, ratingChanged] = useState(null);
   const [value, setValue] = useState(null);
-  console.log(value);
-  const ratingChanged = (newRating) => {
-    console.log(newRating);
-  };
+
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <h2 className="text-center">How much do you rate [Drivers Name]?</h2>
-
-        <ReactStars
-          className="text-center"
-          count={10}
-          onChange={ratingChanged}
-          size={30}
-          activeColor="#ffd700"
-        />
+        <h2 className="text-center">How much do you rate []</h2>
+        <div className="d-flex justify-content-center align-items-center">
+          <input id="rate" className="form-control hide" value={rating} />
+          <ReactStars
+            count={10}
+            onChange={ratingChanged}
+            size={40}
+            isHalf={true}
+            activeColor="#ffd700"
+          />
+        </div>
         <hr className="hr" />
         <h3 className="text-center">Tell us where you're voting&nbsp;from!</h3>
         <div className="form-group">

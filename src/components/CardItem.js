@@ -5,6 +5,7 @@ import { Card, Badge } from "react-bootstrap";
 import ReactCardFlip from "react-card-flip";
 import data from "../data/data.json";
 import { Container } from "./Container";
+import $ from "jquery";
 
 class CardItem extends Component {
   constructor(props) {
@@ -12,6 +13,15 @@ class CardItem extends Component {
     this.state = {
       isFlipped: false,
     };
+  }
+
+  componentDidMount() {
+    $(".custom-btn").on("click", function (event) {
+      event.preventDefault();
+      var x = $(this).closest(".card-body").find(".driver-name").text();
+      var y = $(this).closest(".card-body").find(".driver-name").attr("id");
+      console.log(x, y);
+    });
   }
 
   imagePicker = (id, defaultVal) => {
@@ -28,13 +38,15 @@ class CardItem extends Component {
     this.setState({ isFlipped: !this.state.isFlipped });
   };
 
+  onSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.target.rate.value);
+    console.log(e.target.name.value);
+    console.log(e.target.country.value);
+  };
+
   render() {
     const triggerText = "Rate him!";
-    const onSubmit = (event) => {
-      event.preventDefault(event);
-      console.log(event.target.name.value);
-      console.log(event.target.country.value);
-    };
     return (
       <ReactCardFlip isFlipped={this.state.isFlipped}>
         <Card
@@ -57,7 +69,10 @@ class CardItem extends Component {
           />
           <Card.Body>
             <Card.Text className="text-white d-flex justify-content-between">
-              {this.props.driver.GivenName} {this.props.driver.FamilyName}
+              <span
+                className="driver-name"
+                id={`${this.props.driver.FamilyName.toLowerCase()}`}
+              >{`${this.props.driver.GivenName} ${this.props.driver.FamilyName}`}</span>
               <Badge
                 pill
                 variant="light"
@@ -66,10 +81,7 @@ class CardItem extends Component {
               >
                 Stats
               </Badge>
-              <Container
-                triggerText={triggerText}
-                onSubmit={onSubmit}
-              ></Container>
+              <Container triggerText={triggerText} onSubmit={this.onSubmit} />
             </Card.Text>
           </Card.Body>
         </Card>
