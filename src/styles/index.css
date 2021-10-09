@@ -259,39 +259,16 @@ code {
   flex: 0 0 1;
   align-items: center;
   justify-content: center;
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  text-align: center;
-  position: relative;
-  margin: 2rem 0 2rem 0;
+  min-height: 100vh;
 }
 
-.rating > label {
-  float: right;
-  display: inline;
-  padding: 0;
-  margin: 0;
-  position: relative;
-  width: 1.1em;
+label > input[type="radio"] {
+  display: none;
+}
+
+.star {
   cursor: pointer;
-  color: #000;
-  font-size: 30px;
-}
-
-.rating > label:hover,
-.rating > label:hover ~ label,
-.rating > input.radio-btn:checked ~ label {
-  color: transparent;
-}
-
-.rating > label:hover:before,
-.rating > label:hover ~ label:before,
-.rating > input.radio-btn:checked ~ label:before,
-.rating > input.radio-btn:checked ~ label:before {
-  content: "\2605";
-  position: absolute;
-  left: 0;
-  color: #ffd700;
+  transition: color 200ms;
 }
 
 .hide {
