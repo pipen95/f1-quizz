@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
-export const StarRating = () => {
+export const StarRating = ({ handleClick }) => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
+
   return (
     <div>
       {[...Array(10)].map((star, i) => {
         const ratingValue = i + 1;
+
         return (
           <label>
             <input
@@ -15,7 +17,10 @@ export const StarRating = () => {
               name="rating"
               className="star_input"
               value={ratingValue}
-              onClick={() => setRating(ratingValue)}
+              onClick={(e) => {
+                setRating(ratingValue);
+                return handleClick(e);
+              }}
             />
             <FaStar
               size={30}
