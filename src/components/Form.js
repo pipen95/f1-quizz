@@ -1,6 +1,7 @@
 import React, { useReducer, useState } from "react";
 import CountrySelectOptions from "./CountrySelect";
 import StarRating from "./StarRating";
+import { postData } from "./postData";
 
 const formReducer = (state, event) => {
   if (event.reset) {
@@ -17,28 +18,13 @@ const formReducer = (state, event) => {
   };
 };
 
-export const Form = ({ driver_name }) => {
+export const Form = ({ id, driver_name, closeModal }) => {
   const [formData, setFormData] = useReducer(formReducer, {});
   const [submitting, setSubmitting] = useState(false);
 
-  const postData = async () => {
-    try {
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitting(true);
-    postData();
-
-    setTimeout(() => {
-      setSubmitting(false);
-      setFormData({
-        reset: true,
-      });
-    }, 3000);
+    postData(id, formData, setSubmitting, setFormData, closeModal);
   };
 
   const handleChange = (event) => {
@@ -48,107 +34,95 @@ export const Form = ({ driver_name }) => {
     });
   };
 
-  const handleClick = (event) => {
-    setFormData({
-      name: event.target.name,
-      value: event.target.value,
-    });
-  };
-
   return (
     <div>
-      {submitting && (
-        <div>
-          You are submitting the following:
-          <ul>
-            {Object.entries(formData).map(([name, value]) => (
-              <li key={name}>
-                <strong>{name}</strong>:{" "}
-                {name !== "rating" ? value.toString() : value}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <form onSubmit={handleSubmit}>
-        <h2 className="text-center">How much do you rate {driver_name}?</h2>
+      {submitting ? (
+        <>
+          <h2 className="text-center">Thank you for Voting !</h2>
+        </>
+      ) : (
+        <>
+          <form onSubmit={handleSubmit}>
+            <h2 className="text-center">How much do you rate {driver_name}?</h2>
 
-        <fieldset className="form-group" disabled={submitting}>
-          <div className="d-flex justify-content-center align-items-center">
-            <StarRating handleClick={handleClick} />
-          </div>
-        </fieldset>
-        <hr className="hr" />
-        <h3 className="text-center">
-          Can you share where you're voting from ?
-        </h3>
-        <fieldset
-          className="mt-4 mb-2 d-flex justify-content-center align-items-center"
-          disabled={submitting}
-        >
-          <div className="form-check mr-2" onChange={handleChange}>
-            <input
-              className="form-check-input"
-              type="radio"
-              value="yes"
-              name="info_consent"
-              id="yes"
-            />
-            <label className="form-check-label" htmlFor="yes">
-              Yes
-            </label>
-          </div>
-          <div className="form-check" onChange={handleChange}>
-            <input
-              className="form-check-input"
-              type="radio"
-              name="info_consent"
-              value="no"
-              id="no"
-            />
-            <label className="form-check-label" htmlFor="no">
-              No
-            </label>
-          </div>
-        </fieldset>
-
-        {formData.info_consent === "yes" && (
-          <div>
             <fieldset className="form-group" disabled={submitting}>
-              <label htmlFor="name">Name</label>
-              <input
-                id="name"
-                className="form-control"
-                name="name"
-                onChange={handleChange}
-                value={formData.name || ""}
-              />
+              <div className="d-flex justify-content-center align-items-center">
+                <StarRating handleChange={handleChange} />
+              </div>
             </fieldset>
-            <fieldset className="form-group" disabled={submitting}>
-              <label htmlFor="country">Country</label>
-              <select
-                id="country"
-                name="country"
-                className="form-control"
-                onChange={handleChange}
-                value={formData.country || ""}
+            <hr className="hr" />
+            <h3 className="text-center">
+              Can you share where you're voting from ?
+            </h3>
+            <fieldset
+              className="mt-4 mb-2 d-flex justify-content-center align-items-center"
+              disabled={submitting}
+            >
+              <div className="form-check mr-2" onChange={handleChange}>
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  value="yes"
+                  name="info_consent"
+                  id="yes"
+                />
+                <label className="form-check-label" htmlFor="yes">
+                  Yes
+                </label>
+              </div>
+              <div className="form-check" onChange={handleChange}>
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="info_consent"
+                  value="no"
+                  id="no"
+                />
+                <label className="form-check-label" htmlFor="no">
+                  No
+                </label>
+              </div>
+            </fieldset>
+
+            {formData.info_consent === "yes" && (
+              <div>
+                <fieldset className="form-group" disabled={submitting}>
+                  <label htmlFor="name">Name</label>
+                  <input
+                    id="name"
+                    className="form-control"
+                    name="name"
+                    onChange={handleChange}
+                    value={formData.name || ""}
+                  />
+                </fieldset>
+                <fieldset className="form-group" disabled={submitting}>
+                  <label htmlFor="country">Country</label>
+                  <select
+                    id="country"
+                    name="country"
+                    className="form-control"
+                    onChange={handleChange}
+                    value={formData.country || ""}
+                  >
+                    <CountrySelectOptions />
+                  </select>
+                </fieldset>
+              </div>
+            )}
+
+            <div className="form-group">
+              <button
+                className="form-control btn btn-primary"
+                type="submit"
+                disabled={submitting}
               >
-                <CountrySelectOptions />
-              </select>
-            </fieldset>
-          </div>
-        )}
-
-        <div className="form-group">
-          <button
-            className="form-control btn btn-primary"
-            type="submit"
-            disabled={submitting}
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+                Submit
+              </button>
+            </div>
+          </form>
+        </>
+      )}
     </div>
   );
 };

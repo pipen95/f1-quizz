@@ -38,7 +38,7 @@ export const Modal = ({
             </svg>
           </button>
           <div className="modal-body">
-            <Form driver_name={name} id={id} />
+            <Form driver_name={name} id={id} closeModal={closeModal} />
           </div>
         </div>
       </aside>

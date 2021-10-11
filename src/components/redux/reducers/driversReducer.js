@@ -9,12 +9,6 @@ const defaultState = {
 
 const driversReducer = (state = defaultState, action) => {
   switch (action.type) {
-    // case NEW_DRIVERS:
-    //   return {
-    //     ...state,
-    //     drivers: action.drivers
-    //   };
-
     case NEW_STATS:
       return {
         ...state,
