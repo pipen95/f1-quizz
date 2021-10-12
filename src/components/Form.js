@@ -32,17 +32,6 @@ export const Form = ({ id, driver_name, closeModal }) => {
       value: event.target.value,
     });
   };
-
-  useEffect(() => {
-    let isMounted = true;               // note mutable flag
-    someAsyncOperation().then(data => {
-      if (isMounted) setState(data);    // add conditional check
-    })
-    return () => { isMounted = false }; // cleanup toggles value, if unmounted
-  }, []);                               // adjust dependencies to your needs
-
-
-
   const postData = (id, formData, closeModal) => {
     fetch("https://webhook.site/ab134c9d-fbf4-4d03-a1af-aa9007b907a9", {
       method: "post",
