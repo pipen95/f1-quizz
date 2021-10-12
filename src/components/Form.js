@@ -1,7 +1,6 @@
 import React, { useReducer, useState } from "react";
 import CountrySelectOptions from "./CountrySelect";
 import StarRating from "./StarRating";
-import { postData } from "./postData";
 
 const formReducer = (state, event) => {
   if (event.reset) {
@@ -24,7 +23,7 @@ export const Form = ({ id, driver_name, closeModal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postData(id, formData, setSubmitting, setFormData, closeModal);
+    postData(id, formData, closeModal);
   };
 
   const handleChange = (event) => {
@@ -32,6 +31,58 @@ export const Form = ({ id, driver_name, closeModal }) => {
       name: event.target.name,
       value: event.target.value,
     });
+  };
+  const postData = (id, formData, closeModal) => {
+    fetch("https://webhook.site/ab134c9d-fbf4-4d03-a1af-aa9007b907a9", {
+      method: "post",
+      mode: "no-cors",
+      headers: {
+        Accept: "application/json",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        driver_id: id,
+        country: `${
+          formData.country !== undefined ? `${formData.country}` : `anonymous`
+        }`,
+        name: `${
+          formData.name !== undefined ? `${formData.name}` : `anonymous`
+        }`,
+        info_consent: `${
+          formData.info_consent !== undefined
+            ? `${formData.info_consent}`
+            : `no`
+        }`,
+        rating: `${
+          formData.rating !== undefined ? `${formData.rating}` : `no rate`
+        }`,
+      }),
+    })
+      .then((res) => {
+        console.log(res.body);
+        setSubmitting(true);
+        window.setTimeout(() => {
+          closeModal();
+          setSubmitting(false);
+          setFormData({
+            reset: true,
+          });
+        }, 2000);
+      })
+      .catch((error) => {
+        if (error.response) {
+          // Request made and server responded
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log("Error", error.message);
+        }
+      });
   };
 
   return (
