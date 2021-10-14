@@ -9,12 +9,20 @@ class CardList extends Component {
     super(props);
     this.state = {
       isFlipped: false,
+      isLoading: true,
     };
   }
 
   componentDidMount() {
-    // this.props.fetchDrivers();
-    this.props.fetchStats();
+    const stopLoading = () => {
+      const el = document.querySelector(".loader-container");
+      if (el) {
+        el.remove(); // removing the spinner element
+        // showing the app
+        this.setState({ isLoading: false });
+      }
+    };
+    this.props.fetchStats(stopLoading);
   }
 
   render() {
@@ -27,6 +35,10 @@ class CardList extends Component {
         constructor={driver.Constructor}
       />
     ));
+
+    if (this.state.isLoading) {
+      return null; //app is not ready (fake request is in process)
+    }
 
     return (
       <div

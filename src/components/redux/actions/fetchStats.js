@@ -6,14 +6,15 @@ var requestOptions = {
   redirect: "follow",
 };
 
-export const fetchStats = () => (dispatch) => {
+export const fetchStats = (stopLoading) => (dispatch) => {
   fetch("https://ergast.com/api/f1/current/driverStandings", requestOptions)
     .then((response) => response.text())
-    .then((data) =>
+    .then((data) => {
       dispatch({
         type: NEW_STATS,
         stats: parser.xml2json(data),
-      })
-    )
+      });
+      stopLoading();
+    })
     .catch((err) => console.log(err));
 };

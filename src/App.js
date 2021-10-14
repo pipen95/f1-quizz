@@ -15,6 +15,9 @@ const App = () => {
             <h1 className="header text-center color-white text-white mb-0">
               Rate your favorite F1&nbsp;driver!
             </h1>
+            <div className="loader-container">
+              <div className="loader"></div>
+            </div>
             <CardList />
           </Jumbotron>
         </Jumbotron>
